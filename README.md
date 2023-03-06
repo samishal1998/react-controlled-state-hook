@@ -27,10 +27,10 @@ npm install react-controlled-state-hook
   - `prop`: the prop variable that will be tracked to control the state.
   - Configuration object:
     - `initialValue`: the initial value of the state, this overrides the value from 1st argument `prop`.
-    - `getDerivedStateFromProp`: a function of the type [ControlledStateMethod]() that should return the new state value, the function takes (`prevProp`,`newProp`,`currentState`)
+    - `getDerivedStateFromProp`: a function of the type [ControlledStateMethod](docs/API.md#controlledstatemethod) that should return the new state value, the function takes (`prevProp`,`newProp`,`currentState`)
     - `allowFirstEffect`: this decide whether the first effect that listen to the prop and changes the state should run the on the first render, (default value = `false`).
     - `allowPropChangeState`: this is a control variable that dictates whether the prop should change the state at all, this the initial value for the control variable (default `true`), but the variable can be controlled imperatively using the setter `setAllowPropChangeState`.
-    - `shouldPropChangeState`: a function of the type [ControlledStateMethod<P,S,boolean>]() that should return a boolean to decide whether the new prop value should change the state or not, the function takes (`prevProp`,`newProp`,`currentState`). Unlike `allowPropChangeState`, `shouldPropChangeState` is on per prop value basis, it's called on each new prop value to decide whether it should change the state. if `allowPropChangeState` is `false` then this function is not called.
+    - `shouldPropChangeState`: a function of the type [ControlledStateMethod<P,S,boolean>](docs/API.md#controlledstatemethod) that should return a boolean to decide whether the new prop value should change the state or not, the function takes (`prevProp`,`newProp`,`currentState`). Unlike `allowPropChangeState`, `shouldPropChangeState` is on per prop value basis, it's called on each new prop value to decide whether it should change the state. if `allowPropChangeState` is `false` then this function is not called.
 - Hook Outputs
   - Tuple of:
     - `state` from `useState`.
@@ -175,9 +175,9 @@ function FileViewer({ file: fileProp }: {file: File|string}){
 ```
 
 ## API
-
+[docs/API](docs/API.md)
 ## Next Releases
 
-- [ ] Add configuration option to enhance usage with React.StrictMode.
 - [x] Allow async calls in `getDerivedStateFromProp`.
+- [ ] Add configuration option to enhance usage with React.StrictMode.
 - [ ] Enhance the async functionality of `getDerivedStateFromProp` with monitoring of the promise state.

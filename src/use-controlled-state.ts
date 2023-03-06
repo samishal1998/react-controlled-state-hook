@@ -17,8 +17,11 @@ export type ControlledStateMethodAsync<PropType,StateType,ReturnType=StateType> 
 
 /**
  * An interface describing the extra utilities returned from {@link useControlledState}. It is the type of the third value in the tuple returned from {@link useControlledState}
+ * @typeParam PropType - The data type of the prop.
+ * @typeParam StateType - The data type of the state.
+ * 
  */
-export interface ExtraUtilsReturn<PropType,StateType>{
+export type ExtraUtilsReturn<PropType,StateType> = {
 
 	/**
 	 * This a setter for `allowPropChangeState` which controls whether the prop updates the state in {@link useControlledState} hook.
@@ -26,12 +29,10 @@ export interface ExtraUtilsReturn<PropType,StateType>{
 	 * @param allowPropChangeState 
 	 * 
 	 */
-    setAllowPropChangeState:(allowPropChangeState: boolean | ((currentAllowPropChangeState: boolean) => boolean)) => void
+    setAllowPropChangeState:(allowPropChangeState: boolean | ((currentAllowPropChangeState: boolean) => boolean)) => void,
 
 	/**
 	 * This a getter for `allowPropChangeState` which controls whether the prop updates the state in {@link useControlledState} hook.
-	 * 
-	 * @param allowPropChangeState 
 	 * 
 	 */
     getAllowPropChangeState: ()=> boolean,
@@ -39,10 +40,8 @@ export interface ExtraUtilsReturn<PropType,StateType>{
 	/**
 	 * This a getter for previous Prop value in {@link useControlledState} hook.
 	 * 
-	 * @param allowPropChangeState 
-	 * 
 	 */
-    getPrevProp: ()=>PropType
+    getPrevProp: ()=>PropType,
 }
 
 // 1 true
